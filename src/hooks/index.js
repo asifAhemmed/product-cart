@@ -1,3 +1,3 @@
 import useProducts from "./useProducts";
 
-export { useProducts };
+export { useProducts  };

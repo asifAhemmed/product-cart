@@ -1,10 +1,17 @@
+;
+
 import SortingOptions from "./SortingOptions";
+import { useState } from 'react';
+
 
 const Sort = () => {
+   
+   const [isSort, setIsSort] = useState(false);
   return (
     <div className="relative inline-block text-left">
       <div>
         <button
+          onClick={() => setIsSort(!isSort)}
           type="button"
           className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 transition-all"
           id="menu-button"
@@ -27,7 +34,9 @@ const Sort = () => {
         </button>
       </div>
 
-      <SortingOptions />
+      {
+        isSort && <SortingOptions />
+      }
     </div>
   );
 };

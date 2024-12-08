@@ -4,9 +4,9 @@ import { useProducts } from "../hooks";
 
 
 const ProductsProvider = ({children}) => {
-    const { products, loading, error} = useProducts();
+    const { products,setProducts, loading, error} = useProducts();
     return (
-        <ProductContext.Provider value={{products, loading, error} }>
+        <ProductContext.Provider value={{products,setProducts, loading, error} }>
             { children }
         </ProductContext.Provider>
     );

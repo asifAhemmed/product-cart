@@ -3,7 +3,7 @@ import { ProductContext } from "../../context/context";
 import { useContext } from "react";
 
 const ProductCards = () => {
-  const { products, loading} = useContext(ProductContext);
+  const { products, loading } = useContext(ProductContext);
 
   return (
     <div className="bg-white">
