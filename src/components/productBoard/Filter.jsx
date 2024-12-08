@@ -1,10 +1,13 @@
 import FilterOptions from "./FilterOptions";
+import { useState } from 'react';
 
 const Filter = () => {
+  const [showFilter, setShowFilter] = useState(false);
   return (
     <div className="relative inline-block text-left">
       <div>
         <button
+          onClick={ () => setShowFilter(!showFilter) }
           type="button"
           className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 transition-all"
           id="filter-button"
@@ -26,8 +29,10 @@ const Filter = () => {
           </svg>
         </button>
       </div>
-
-      <FilterOptions />
+      {
+        showFilter && <FilterOptions />
+      }
+      
     </div>
   );
 };

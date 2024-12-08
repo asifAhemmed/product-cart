@@ -1,8 +1,9 @@
-import { ProductContext } from "../../context/context";
+import { FilteredContext, ProductContext } from "../../context/context";
 import { useContext } from 'react';
 
 const SortingOptions = () => {
   const { products,setProducts } = useContext(ProductContext);
+  const { filteredData,setFilteredData } = useContext(FilteredContext);
   const handleSort = (order) => {
     const sortedProducts = [...products].sort((a, b) => {
       if (order === "asc") {
@@ -11,6 +12,14 @@ const SortingOptions = () => {
         return b.price - a.price;
       }
     })
+    const sortedFilteredData = [...filteredData].sort((a, b) => {
+      if (order === "asc") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    })
+    setFilteredData(sortedFilteredData);
     setProducts(sortedProducts);
   };
   return (
